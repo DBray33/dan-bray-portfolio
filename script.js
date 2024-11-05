@@ -70,7 +70,7 @@ window.addEventListener('scroll', function () {
 const carouselItems = document.querySelectorAll('.carousel-item');
 const carouselBtns = document.querySelectorAll('.carousel-btn');
 let currentIndex = 0;
-const intervalTime = 5000; // 5 seconds
+const intervalTime = 8000; // 5 seconds
 
 // Function to show the current carousel item
 function showCarouselItem(index) {

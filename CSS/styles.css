@@ -340,20 +340,22 @@ img {
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .carousel-btn {
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   background-color: #f4f4f4;
   border-color: black;
-  border-radius: 50%;
+  border-radius: 0;
+  transform: rotate(45deg);
+  transform-origin: center;
   cursor: pointer;
 }
 
 .carousel-btn.active {
-  background-color: rgba(255, 255, 255, 1);
+  background-color: black;
 }
 
 /* Slide animations */

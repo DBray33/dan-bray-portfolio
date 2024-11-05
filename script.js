@@ -1,3 +1,4 @@
+// NAVBAR MENU
 // Toggle mobile menu
 document.addEventListener('DOMContentLoaded', function () {
   const toggleButton = document.querySelector('.navbar .mobile-menu-toggle');
@@ -23,6 +24,7 @@ window.addEventListener('scroll', function () {
   }
 });
 
+// BACK TO TOP
 // Show the "Back to Top" button after scrolling down
 window.addEventListener('scroll', function () {
   const backToTopButton = document.getElementById('back-to-top');
@@ -47,6 +49,7 @@ if (backToTopButton) {
   });
 }
 
+// PARALLAX
 // Parallax effect with Stellar.js (if jQuery is loaded)
 if (typeof $ !== 'undefined') {
   $(document).ready(function () {
@@ -63,7 +66,7 @@ window.addEventListener('scroll', function () {
   section.style.backgroundPosition = `center ${scrollPosition}px`;
 });
 
-// Carousel
+// CAROUSEL
 const carouselItems = document.querySelectorAll('.carousel-item');
 const carouselBtns = document.querySelectorAll('.carousel-btn');
 let currentIndex = 0;
@@ -71,17 +74,29 @@ const intervalTime = 5000; // 5 seconds
 
 // Function to show the current carousel item
 function showCarouselItem(index) {
-  carouselItems.forEach((item) => item.classList.remove('active'));
-  carouselBtns.forEach((btn) => btn.classList.remove('active'));
+  // Mark the current item as outgoing for the slide-out effect
+  carouselItems[currentIndex].classList.remove('active');
+  carouselItems[currentIndex].classList.add('outgoing');
 
-  carouselItems[index].classList.add('active');
-  carouselBtns[index].classList.add('active');
+  // When the slide-out animation ends, remove the outgoing class
+  carouselItems[currentIndex].addEventListener('animationend', function () {
+    this.classList.remove('outgoing');
+  });
+
+  // Update the index
+  currentIndex = index;
+
+  // Add active class for slide-in effect
+  carouselItems[currentIndex].classList.add('active');
+  carouselBtns.forEach((btn, btnIndex) => {
+    btn.classList.toggle('active', btnIndex === currentIndex);
+  });
 }
 
 // Function to go to the next item
 function nextCarouselItem() {
-  currentIndex = (currentIndex + 1) % carouselItems.length;
-  showCarouselItem(currentIndex);
+  const newIndex = (currentIndex + 1) % carouselItems.length;
+  showCarouselItem(newIndex);
 }
 
 // Set interval for automatic slide rotation
@@ -91,8 +106,7 @@ let carouselInterval = setInterval(nextCarouselItem, intervalTime);
 carouselBtns.forEach((btn, idx) => {
   btn.addEventListener('click', () => {
     clearInterval(carouselInterval); // Stop auto-rotation on manual click
-    currentIndex = idx; // Use the index from the loop
-    showCarouselItem(currentIndex);
+    showCarouselItem(idx); // Show the selected item
     carouselInterval = setInterval(nextCarouselItem, intervalTime); // Restart auto-rotation
   });
 });

@@ -49,3 +49,40 @@ document.getElementById('back-to-top').addEventListener('click', function (e) {
     });
   });
 </script>
+
+
+// Carousel
+const carouselItems = document.querySelectorAll('.carousel-item');
+const carouselBtns = document.querySelectorAll('.carousel-btn');
+let currentIndex = 0;
+const intervalTime = 5000; // 5 seconds
+
+// Function to show the current carousel item
+function showCarouselItem(index) {
+  // Remove 'active' class from all items and buttons
+  carouselItems.forEach(item => item.classList.remove('active'));
+  carouselBtns.forEach(btn => btn.classList.remove('active'));
+
+  // Add 'active' class to the current item and button
+  carouselItems[index].classList.add('active');
+  carouselBtns[index].classList.add('active');
+}
+
+// Function to go to the next item
+function nextCarouselItem() {
+  currentIndex = (currentIndex + 1) % carouselItems.length;
+  showCarouselItem(currentIndex);
+}
+
+// Set interval for automatic slide rotation
+let carouselInterval = setInterval(nextCarouselItem, intervalTime);
+
+// Event listeners for navigation buttons
+carouselBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    clearInterval(carouselInterval); // Stop auto-rotation on manual click
+    currentIndex = parseInt(btn.getAttribute('data-index'));
+    showCarouselItem(currentIndex);
+    carouselInterval = setInterval(nextCarouselItem, intervalTime); // Restart auto-rotation
+  });
+});

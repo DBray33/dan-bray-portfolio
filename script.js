@@ -57,6 +57,12 @@ if (typeof $ !== 'undefined') {
   });
 }
 
+window.addEventListener('scroll', function () {
+  const section = document.getElementById('text-carousel-intro-section');
+  const scrollPosition = window.scrollY * 0.15; // Adjust speed with multiplier
+  section.style.backgroundPosition = `center ${scrollPosition}px`;
+});
+
 // Carousel
 const carouselItems = document.querySelectorAll('.carousel-item');
 const carouselBtns = document.querySelectorAll('.carousel-btn');

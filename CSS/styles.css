@@ -10,7 +10,7 @@
 :root {
   --primary-color: #7ea532;
   --secondary-color: #fff;
-  --tertiary-color: #fe8d19;
+  --tertiary-color: #ffb902;
   --dark-color: #039971;
   --light-color: #f7f6e7;
   --off-white: #faf9f6;
@@ -42,8 +42,8 @@ img {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background-color: var(--dark-color);
-  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  color: var(--black-color);
   font-size: 24px;
   padding: 10px 15px;
   border-radius: 50%;
@@ -58,6 +58,12 @@ img {
 
 /* Show the button when the user scrolls down */
 #back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#back-to-top:hover {
+  background-color: var(--tertiary-color);
   opacity: 1;
   visibility: visible;
 }
@@ -154,7 +160,7 @@ img {
   left: 0;
   z-index: 1000;
   /* overflow: hidden; */
-  transition: background-color 0.5s ease-in-out;
+  transition: background-color 2s ease-in-out;
 }
 
 .navbar.navbar-scroll {
@@ -171,10 +177,10 @@ img {
 
 .navbar .main-menu-list {
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   font-weight: 600;
 }
 
@@ -182,12 +188,26 @@ img {
   color: black;
   display: inline-block;
   vertical-align: middle;
+  padding: 0.2rem; /* Apply consistent padding */
 }
 
 .navbar a:hover {
+  color: #ffb902;
+  outline: 2px solid black;
+  border-radius: 4px;
+  /* background: black; */
   color: white;
   cursor: pointer;
-  transform: scale(1.1);
+  padding: 0.2rem;
+}
+
+.tooltip:hover {
+  outline: 2px solid black;
+  border-radius: 4px;
+}
+
+.tooltip {
+  padding: 0.2rem;
 }
 
 /* Mobile Menu */
@@ -196,7 +216,7 @@ img {
 }
 
 .navbar .mobile-menu-toggle {
-  color: #fff;
+  color: black;
   cursor: pointer;
 }
 
@@ -217,6 +237,16 @@ img {
   transition: transform 0.3s ease;
   max-height: calc(100vh - 100%); /* Account for the height of the top menu */
   overflow-y: auto;
+}
+
+/* Mobile Menu Items Font Color */
+.navbar .mobile-menu-items a {
+  color: white;
+}
+
+/* Optional: Hover effect for menu items */
+.navbar .mobile-menu-items a:hover {
+  color: var(--primary-color);
 }
 
 .navbar .mobile-menu-items.active {

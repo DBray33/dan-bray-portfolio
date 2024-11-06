@@ -51,62 +51,52 @@ if (backToTopButton) {
 
 // PARALLAX
 // Parallax effect with Stellar.js (if jQuery is loaded)
-if (typeof $ !== 'undefined') {
-  $(document).ready(function () {
-    $.stellar({
-      horizontalScrolling: false,
-      responsive: true,
-    });
-  });
-}
+// if (typeof $ !== 'undefined') {
+//   $(document).ready(function () {
+//     $.stellar({
+//       horizontalScrolling: false,
+//       responsive: true,
+//     });
+//   });
+// }
 
-window.addEventListener('scroll', function () {
-  const section = document.getElementById('text-carousel-intro-section');
-  const scrollPosition = window.scrollY * 0.15; // Adjust speed with multiplier
-  section.style.backgroundPosition = `center ${scrollPosition}px`;
-});
+// window.addEventListener('scroll', function () {
+//   const section = document.getElementById('text-carousel-intro-section');
+//   const scrollPosition = window.scrollY * 0.15;
+//   section.style.backgroundPosition = `center ${scrollPosition}px`;
+// });
 
 // CAROUSEL
 const carouselItems = document.querySelectorAll('.carousel-item');
-const carouselBtns = document.querySelectorAll('.carousel-btn');
 let currentIndex = 0;
-const intervalTime = 8000; // 5 seconds
 
-// Function to show the current carousel item
+// Show the next item with animation
 function showCarouselItem(index) {
-  // Mark the current item as outgoing for the slide-out effect
+  // Mark current item to slide out
+  carouselItems[currentIndex].classList.add('slide-out');
   carouselItems[currentIndex].classList.remove('active');
-  carouselItems[currentIndex].classList.add('outgoing');
 
-  // When the slide-out animation ends, remove the outgoing class
-  carouselItems[currentIndex].addEventListener('animationend', function () {
-    this.classList.remove('outgoing');
-  });
+  // Wait for slide-out animation to finish, then hide the item
+  carouselItems[currentIndex].addEventListener(
+    'animationend',
+    function () {
+      this.classList.remove('slide-out');
+      this.style.display = 'none';
+    },
+    { once: true }
+  );
 
-  // Update the index
+  // Update to new index and show the item with slide-in animation
   currentIndex = index;
-
-  // Add active class for slide-in effect
+  carouselItems[currentIndex].style.display = 'block';
   carouselItems[currentIndex].classList.add('active');
-  carouselBtns.forEach((btn, btnIndex) => {
-    btn.classList.toggle('active', btnIndex === currentIndex);
-  });
 }
 
-// Function to go to the next item
+// Example navigation code for moving to the next item
 function nextCarouselItem() {
-  const newIndex = (currentIndex + 1) % carouselItems.length;
-  showCarouselItem(newIndex);
+  const nextIndex = (currentIndex + 1) % carouselItems.length;
+  showCarouselItem(nextIndex);
 }
 
-// Set interval for automatic slide rotation
-let carouselInterval = setInterval(nextCarouselItem, intervalTime);
-
-// Event listeners for carousel navigation buttons
-carouselBtns.forEach((btn, idx) => {
-  btn.addEventListener('click', () => {
-    clearInterval(carouselInterval); // Stop auto-rotation on manual click
-    showCarouselItem(idx); // Show the selected item
-    carouselInterval = setInterval(nextCarouselItem, intervalTime); // Restart auto-rotation
-  });
-});
+// Event listener for carousel buttons or set interval to auto-rotate
+setInterval(nextCarouselItem, 5000);

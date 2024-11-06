@@ -18,12 +18,13 @@
 
 html,
 body {
-  background: var(--tertiary-color);
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
   scroll-behavior: smooth;
   overflow-x: hidden;
   scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+  background: var(--primary-color);
 }
 
 a {
@@ -182,7 +183,7 @@ img {
 
 /* NAVBAR */
 .navbar {
-  /* background-color: var(--primary-color); */
+  /* background-color: var(--tertiary-color); */
   opacity: 0.8;
   padding: 0.5rem 0.5rem;
   position: fixed;
@@ -190,7 +191,6 @@ img {
   right: 0;
   left: 0;
   z-index: 1000;
-  /* overflow: hidden; */
   transition: background-color 0.4s ease-in-out;
 }
 
@@ -305,86 +305,72 @@ img {
   color: var(--secondary-color);
 }
 
-/* Text Carousel */
-#text-carousel-intro-section {
+/* Hero and Parallax Layers */
+.hero {
+  position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url('../images/bg3.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center top;
+  overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  background-size: cover;
+  margin-top: 0;
 }
 
-.caption h1 {
-  font-size: 2.5rem;
-  color: black;
+/* Carousel Content Positioning */
+.carousel-content {
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
   text-align: center;
 }
 
-.caption {
-  font-size: 1.5rem;
-  color: black;
-  text-align: center;
-}
-
-.caption p {
-  font-size: 1.5rem;
-  color: black;
-  text-align: center;
-  padding: 0 2rem;
-  margin-bottom: 1rem;
-}
-
-/* Hide all carousel items by default */
+/* Carousel Styling */
 .carousel-item {
   display: none;
-  position: absolute;
-  top: 15rem;
-  left: 0;
-  width: 100%;
+  opacity: 0;
+  position: relative;
 }
 
-/* Active and outgoing items */
 .carousel-item.active {
   display: block;
-  animation: slideInFromRight 1s forwards;
-  transform: rotate(90deg);
+  animation: slideInFromRight 0.5s forwards;
 }
 
-.carousel-item.outgoing {
-  display: block;
-  animation: slideOutToLeft 1s forwards;
+.carousel-item.slide-out {
+  animation: slideOutToLeft 0.5s forwards;
 }
 
+/* Carousel Navigation Container */
 .carousel-navigation {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
-  gap: 2rem;
+  margin-top: 1rem;
+  gap: 1rem;
+  z-index: 15; /* Ensure it's above parallax and carousel layers */
 }
 
+/* Carousel Button Style */
 .carousel-btn {
-  width: 10px;
-  height: 10px;
-  background-color: transparent;
-  border-color: black;
-  border-radius: 0;
-  transform: rotate(45deg);
-  transform-origin: center;
+  width: 12px;
+  height: 12px;
+  background-color: #f4f4f4;
+  border: 2px solid black;
+  border-radius: 50%;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .carousel-btn.active {
   background-color: black;
 }
 
-/* Slide animations */
+/* Keyframes */
 @keyframes slideInFromRight {
   from {
     transform: translateX(100%);
@@ -406,6 +392,52 @@ img {
     opacity: 0;
   }
 }
+
+/* Parallax Layers */
+.parallax-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  overflow-y: hidden;
+}
+
+.layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: cover; /* Ensures each layer fills the viewport */
+}
+
+/* Layer Parallax Effect */
+.layer1 {
+  transform: translateX(-50%) translateY(0px);
+}
+.layer2 {
+  transform: translateX(-50%) translateY(-0.2px);
+}
+.layer3 {
+  transform: translateX(-50%) translateY(-0.4px);
+}
+.layer4 {
+  transform: translateX(-50%) translateY(-0.6px);
+}
+.layer5 {
+  transform: translateX(-50%) translateY(-0.8px);
+}
+.layer6 {
+  transform: translateX(-50%) translateY(-1px);
+}
+.layer7 {
+  transform: translateX(-50%) translateY(-1.2px);
+}
+.layer8 {
+  transform: translateX(-50%) translateY(-1.5px);
+} /* Sky layer */
 
 /* ABOUT SECTION */
 .about-section {

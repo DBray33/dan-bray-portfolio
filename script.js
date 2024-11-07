@@ -105,19 +105,17 @@ function showCarouselItem(index) {
   carouselItems[currentIndex].classList.add('slide-out');
   carouselItems[currentIndex].classList.remove('active');
 
-  // Wait for slide-out animation to finish, then hide the item
+  // Set the outgoing item’s opacity to 0 after animation
   carouselItems[currentIndex].addEventListener(
     'animationend',
     function () {
       this.classList.remove('slide-out');
-      this.style.display = 'none';
     },
     { once: true }
   );
 
   // Update to new index, show the new item, and highlight corresponding button
   currentIndex = index;
-  carouselItems[currentIndex].style.display = 'block';
   carouselItems[currentIndex].classList.add('active');
 
   // Update active button

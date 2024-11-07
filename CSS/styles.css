@@ -320,7 +320,7 @@ img {
 
 /* Carousel Content Positioning */
 .carousel-content {
-  font-size: 2rem;
+  font-size: 1rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -363,9 +363,9 @@ img {
 .carousel-btn {
   width: 12px;
   height: 12px;
-  background-color: #f4f4f4;
+  /* background-color: #f4f4f4; */
   border: 2px solid black;
-  border-radius: 50%;
+  transform: rotate(45deg);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }

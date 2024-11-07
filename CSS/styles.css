@@ -320,8 +320,9 @@ img {
 
 /* Carousel Content Positioning */
 .carousel-content {
-  font-size: 1rem;
+  font-size: 2rem;
   position: absolute;
+  min-width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -334,7 +335,7 @@ img {
   display: none;
   opacity: 0;
   position: relative;
-  transition: opacity 0.5s ease; /* Smooth fade transition */
+  transition: opacity 0.5s ease;
 }
 
 .carousel-item.active {

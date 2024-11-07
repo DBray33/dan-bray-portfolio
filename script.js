@@ -96,11 +96,12 @@ window.addEventListener('scroll', function () {
 
 // CAROUSEL
 const carouselItems = document.querySelectorAll('.carousel-item');
+const carouselButtons = document.querySelectorAll('.carousel-btn');
 let currentIndex = 0;
 
 // Show the next item with animation
 function showCarouselItem(index) {
-  // Mark current item to slide out
+  // Hide the current item with slide-out animation
   carouselItems[currentIndex].classList.add('slide-out');
   carouselItems[currentIndex].classList.remove('active');
 
@@ -114,17 +115,23 @@ function showCarouselItem(index) {
     { once: true }
   );
 
-  // Update to new index and show the item with slide-in animation
+  // Update to new index, show the new item, and highlight corresponding button
   currentIndex = index;
   carouselItems[currentIndex].style.display = 'block';
   carouselItems[currentIndex].classList.add('active');
+
+  // Update active button
+  carouselButtons.forEach((btn) => btn.classList.remove('active'));
+  carouselButtons[currentIndex].classList.add('active');
 }
 
-// Example navigation code for moving to the next item
-function nextCarouselItem() {
+// Set interval to auto-rotate carousel items
+setInterval(() => {
   const nextIndex = (currentIndex + 1) % carouselItems.length;
   showCarouselItem(nextIndex);
-}
+}, 5000);
 
-// Event listener for carousel buttons or set interval to auto-rotate
-setInterval(nextCarouselItem, 5000);
+// Add click listeners to carousel buttons for manual navigation
+carouselButtons.forEach((btn, index) => {
+  btn.addEventListener('click', () => showCarouselItem(index));
+});

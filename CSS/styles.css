@@ -320,7 +320,7 @@ img {
 
 /* Carousel Content Positioning */
 .carousel-content {
-  font-size: 2rem;
+  font-size: 1.5rem;
   position: absolute;
   min-width: 100%;
   top: 50%;

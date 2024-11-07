@@ -91,9 +91,7 @@ window.addEventListener('scroll', function () {
   document.querySelector('.layer7').style.transform = `translateY(${
     scrollPosition * 1.4
   }px)`;
-  document.querySelector('.layer8').style.transform = `translateY(${
-    scrollPosition * 1.6
-  }px)`;
+  document.querySelector('.layer8').style.transform = `translateY(0px)`; // Keep layer8 stationary
 });
 
 // CAROUSEL

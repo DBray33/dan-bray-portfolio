@@ -66,6 +66,36 @@ if (backToTopButton) {
 //   section.style.backgroundPosition = `center ${scrollPosition}px`;
 // });
 
+window.addEventListener('scroll', function () {
+  const scrollPosition = window.scrollY;
+
+  // Adjust the position of each layer at different speeds
+  document.querySelector('.layer1').style.transform = `translateY(${
+    scrollPosition * 0.2
+  }px)`;
+  document.querySelector('.layer2').style.transform = `translateY(${
+    scrollPosition * 0.4
+  }px)`;
+  document.querySelector('.layer3').style.transform = `translateY(${
+    scrollPosition * 0.6
+  }px)`;
+  document.querySelector('.layer4').style.transform = `translateY(${
+    scrollPosition * 0.8
+  }px)`;
+  document.querySelector('.layer5').style.transform = `translateY(${
+    scrollPosition * 1
+  }px)`;
+  document.querySelector('.layer6').style.transform = `translateY(${
+    scrollPosition * 1.2
+  }px)`;
+  document.querySelector('.layer7').style.transform = `translateY(${
+    scrollPosition * 1.4
+  }px)`;
+  document.querySelector('.layer8').style.transform = `translateY(${
+    scrollPosition * 1.6
+  }px)`;
+});
+
 // CAROUSEL
 const carouselItems = document.querySelectorAll('.carousel-item');
 let currentIndex = 0;

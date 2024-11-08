@@ -153,12 +153,12 @@
                 <a class="btn btn-blank" href="#" role="button">View More</a>
               </div>
               <div class="carousel-item">
-                <h1>Focuses Heading</h1>
+                <h1>This is an endless work in progress</h1>
                 <p>Section elaboration</p>
                 <a class="btn btn-blank" href="#" role="button">View More</a>
               </div>
               <div class="carousel-item">
-                <h1>Another Subject</h1>
+                <h1>Plenty to come soon</h1>
                 <p>Another brief subject elaboration</p>
                 <a class="btn btn-blank" href="#" role="button">View More</a>
               </div>
@@ -206,42 +206,115 @@
       </div>
     </section>
 
-    <!-- About -->
+    <!-- About Section -->
     <section id="about" class="about-section">
       <div class="container">
         <div class="section-header">
           <h2>About Me</h2>
           <div class="heading-border"></div>
-
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
             eaque.
           </p>
         </div>
-
-        <div class="about-content">
-          <div class="about-text">
-            <p>
-              Implment accodion menu here with 5 different prompts and
-              paragraphs that slide down and become visible when clicked on
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-              blanditiis nostrum veritatis excepturi deserunt dolores illum,
-              dicta eveniet reiciendis quae repellat magnam similique fuga,
-              officia, facilis cupiditate. Inventore unde ab eligendi dolorem,
-              aliquid sunt id obcaecati aliquam. Eius impedit facilis neque sit
-              doloremque. Quisquam quibusdam dolor neque fugiat aspernatur autem
-              dolorem voluptates ducimus culpa, voluptatum eveniet enim quod,
-              odio cumque!
-            </p>
+        <div class="row about-content">
+          <div class="col-md-6">
+            <!-- Accordion Menu -->
+            <div class="accordion" id="aboutAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne">
+                    Section 1
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#aboutAccordion">
+                  <div class="accordion-body">Content for section 1.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo">
+                    Section 2
+                  </button>
+                </h2>
+                <div
+                  id="collapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingTwo"
+                  data-bs-parent="#aboutAccordion">
+                  <div class="accordion-body">Content for section 2.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree">
+                    Section 3
+                  </button>
+                </h2>
+                <div
+                  id="collapseThree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingThree"
+                  data-bs-parent="#aboutAccordion">
+                  <div class="accordion-body">Content for section 3.</div>
+                </div>
+              </div>
+            </div>
           </div>
+          <div class="col-md-6">
+            <!-- Headshot Image -->
+            <div class="about-image">
+              <img
+                src="images/headshot.jpeg"
+                alt="Your Headshot"
+                class="img-fluid" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <!-- <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>About Me</h2>
+          <div class="heading-border"></div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
+            eaque.
+          </p>
+        </div>
+        <div class="about-content">
+          <div class="about-text"></div>
           <div class="about-image">
             <img src="images/headshot.jpeg" alt="Your Headshot" />
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Contact -->
     <section class="contact" id="contact">

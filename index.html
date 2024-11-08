@@ -218,13 +218,13 @@
           </p>
         </div>
         <div class="row about-content">
-          <div class="col-md-6">
+          <div class="col-md-6 accordion-container">
             <!-- Accordion Menu -->
             <div class="accordion" id="aboutAccordion">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                   <button
-                    class="accordion-button"
+                    class="accordion-button btn-blank"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseOne"
@@ -244,7 +244,7 @@
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingTwo">
                   <button
-                    class="accordion-button collapsed"
+                    class="accordion-button btn-blank collapsed"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseTwo"
@@ -264,7 +264,7 @@
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingThree">
                   <button
-                    class="accordion-button collapsed"
+                    class="accordion-button btn-blank collapsed"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseThree"
@@ -279,6 +279,46 @@
                   aria-labelledby="headingThree"
                   data-bs-parent="#aboutAccordion">
                   <div class="accordion-body">Content for section 3.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button
+                    class="accordion-button btn-blank collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour"
+                    aria-expanded="false"
+                    aria-controls="collapseFour">
+                    Section 4
+                  </button>
+                </h2>
+                <div
+                  id="collapseFour"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingFour"
+                  data-bs-parent="#aboutAccordion">
+                  <div class="accordion-body">Content for section 4.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                  <button
+                    class="accordion-button btn-blank collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive"
+                    aria-expanded="false"
+                    aria-controls="collapseFive">
+                    Section 5
+                  </button>
+                </h2>
+                <div
+                  id="collapseFive"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingFive"
+                  data-bs-parent="#aboutAccordion">
+                  <div class="accordion-body">Content for section 5.</div>
                 </div>
               </div>
             </div>

@@ -80,6 +80,7 @@ img {
 /* Basic button styling */
 /* Base styles for the button */
 .btn-blank {
+  background: transparent;
   font-size: 1rem;
   display: inline-block;
   padding: 5px 15px;
@@ -446,6 +447,7 @@ img {
 
 /* ABOUT SECTION */
 .about-section {
+  background-image: url('../images/png-layers/layer8.png');
   padding: 60px 0;
 }
 
@@ -464,6 +466,11 @@ img {
 .about-content {
   display: flex;
   align-items: center;
+  width: 100%; /* Make the about-content take full width */
+}
+
+.about-content .col-md-6 {
+  flex: 1; /* Make the columns take equal space */
 }
 
 .about-image {
@@ -472,7 +479,12 @@ img {
 
 .about-image img {
   max-width: 50%; /* Adjust the size as needed */
-  border-radius: 50%;
+  border-radius: 0; /* Remove the oval styling */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Add a shadow */
+}
+
+.accordion-container {
+  width: 100%; /* Adjust the width as needed */
 }
 
 /* GALLERY */
@@ -658,4 +670,21 @@ img {
   width: 100%; /* Ensures it spans the full width below the links */
   margin: 0.5rem 0;
   text-align: center;
+}
+
+.accordion-container {
+  width: 100%; /* Adjust the width as needed */
+}
+
+.accordion-button {
+  width: 600px;
+  font-size: 1rem;
+  display: inline-block;
+  padding: 5px 15px;
+  color: black;
+  border: 1px solid black;
+  text-decoration: none;
+  position: relative; /* Position for the pseudo-element */
+  overflow: hidden; /* Hide the overflow of the pseudo-element */
+  transition: color 0.3s ease;
 }
